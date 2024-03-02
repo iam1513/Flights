@@ -25,6 +25,7 @@ async function createCity(req, res) {
   }
 }
 
+// DELETE : BY OWN
 async function destroyCity(req, res) {
   try {
     const city = await CityService.destroyCity(req.params.id);
@@ -36,7 +37,23 @@ async function destroyCity(req, res) {
   }
 }
 
+// PATCH : BY OWN
+async function updateCity(req, res) {
+  try {
+    const city = await CityService.updateCity(
+      req.params.id,
+      req.body // To Extract data from request body
+    );
+    SuccessResponse.data = city;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    ErrorResponse.error = error;
+    return res.status(error.statusCode).json(ErrorResponse);
+  }
+}
+
 module.exports = {
   createCity,
   destroyCity,
+  updateCity,
 };
