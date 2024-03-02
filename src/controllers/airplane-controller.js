@@ -60,6 +60,7 @@ async function destroyAirplane(req, res) {
   }
 }
 
+// PATCH : BY OWN
 async function updateAirplane(req, res) {
   try {
     const airplane = await AirplaneService.updateAirplane(

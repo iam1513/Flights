@@ -77,7 +77,7 @@ async function destroyAirplane(id) {
   }
 }
 
-// PATCH req
+// PATCH : BY OWN
 async function updateAirplane(id,data){
   try {
     const response = await airplaneRepository.update(id,data)

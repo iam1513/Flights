@@ -31,6 +31,7 @@ router.delete(
   AirplaneController.destroyAirplane // Get airplane , no need of middleware
 );
 
+// PATCH : BY OWN
 router.patch(
   "/:id",
   AirplaneController.updateAirplane // Get airplane , no need of middleware
