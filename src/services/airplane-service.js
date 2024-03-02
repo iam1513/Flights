@@ -44,6 +44,26 @@ async function getAirplane(id) {
     const airplane = await airplaneRepository.get(id); // To get a specific Airplane
     return airplane;
   } catch (error) {
+    // To handle id not present delete req
+    if (error.statusCode == StatusCodes.NOT_FOUND) {
+      throw new AppError(
+        "The Airplane you requested is not present",
+        StatusCodes.NOT_FOUND
+      );
+    }
+    throw new AppError(
+      "Cannot fetch data of all the Airplanes",
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
+async function destroyAirplane(id) {
+  try {
+    const response = await airplaneRepository.destroy(id);
+    return response;
+  } catch (error) {
+    // To handle id not present delete req
     if (error.statusCode == StatusCodes.NOT_FOUND) {
       throw new AppError(
         "The Airplane you requested is not present",
@@ -61,4 +81,5 @@ module.exports = {
   createAirplane,
   getAirplanes,
   getAirplane,
+  destroyAirplane,
 };

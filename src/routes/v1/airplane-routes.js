@@ -26,4 +26,9 @@ router.get(
   AirplaneController.getAirplane // Get airplane , no need of middleware
 );
 
+router.delete(
+  "/:id",
+  AirplaneController.destroyAirplane // Get airplane , no need of middleware
+);
+
 module.exports = router;
