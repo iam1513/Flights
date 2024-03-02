@@ -12,4 +12,10 @@ router.post(
   CityController.createCity
 );
 
+router.delete(
+  "/:id",
+  CityMiddlewares.validateCreateRequest,
+  CityController.destroyCity
+);
+
 module.exports = router;
