@@ -8,7 +8,7 @@ function validateCreateRequest(req, res, next) {
     ErrorResponse.message = "Something went wrong while creating City ";
 
     ErrorResponse.error = new AppError(
-      ["City name not found in the incoming request in the correct form"],
+      ["City name not found in the correct form"],
       StatusCodes.BAD_REQUEST
     );
     return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);

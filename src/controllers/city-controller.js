@@ -15,7 +15,7 @@ async function createCity(req, res) {
     const city = await CityService.createCity({
       name: req.body.name,
     });
-    // returning the airplane we created
+    // returning the city we created
     SuccessResponse.data = city;
     return res.status(StatusCodes.CREATED).json(SuccessResponse);
   } catch (error) {
