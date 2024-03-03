@@ -9,11 +9,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.City,{
+      this.belongsTo(models.City, {
         foreignKey: cityId,
-        onDelete: 'CASCADE',
-        onUpdate:"CASCADE"
+        onDelete: "CASCADE",
+        // onUpdate:"CASCADE" ---> Dont want this as it will cause issues
       }); // Airport belongs to city
+
+      this.hasMany(models.Flight, {
+        foreignKey: "arrivalAirportId",
+        onDelete: "CASCADE",
+      });
+
+      this.hasMany(models.Flight, {
+        foreignKey: "departureAirportId",
+        onDelete: "CASCADE",
+      });
     }
   }
   Airport.init(
