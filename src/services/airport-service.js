@@ -74,9 +74,9 @@ async function destroyAirport(id) {
 }
 
 // PATCH : BY OWN
-async function updateAirport(id,data){
+async function updateAirport(id, data) {
   try {
-    const response = await airportRepository.update(id,data)
+    const response = await airportRepository.update(id, data);
     return response;
   } catch (error) {
     if (error.statusCode == StatusCodes.NOT_FOUND) {
@@ -97,5 +97,5 @@ module.exports = {
   getAirports,
   getAirport,
   destroyAirport,
-  updateAirport
+  updateAirport,
 };
