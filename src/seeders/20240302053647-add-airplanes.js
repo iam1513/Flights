@@ -12,7 +12,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    await queryInterface.bulkInsert("airplanes", [
+    await queryInterface.bulkInsert("Airplanes", [
       {
         modelNumber: "Airbus330",
         capacity: 320,
